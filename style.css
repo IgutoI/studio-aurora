@@ -1,0 +1,918 @@
+
+/* =========================
+   1. CONFIGURAÇÕES GERAIS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --background: #090b14;
+    --surface: #111522;
+    --surface-hover: #181e30;
+    --text: #f3f4f8;
+    --muted: #a3a9ba;
+    --accent: #a78bfa;
+    --accent-light: #c4b5fd;
+    --border: rgba(255, 255, 255, 0.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================
+   2. CABEÇALHO
+========================= */
+
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9, 11, 20, 0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    width: min(1200px, 88%);
+    min-height: 82px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: color 0.25s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-light);
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 19px;
+    border: 1px solid var(--accent);
+    border-radius: 7px;
+    color: var(--accent-light);
+    font-size: 14px;
+    white-space: nowrap;
+    transition: 0.25s;
+}
+
+.nav-button:hover {
+    background: var(--accent);
+    color: #090b14;
+}
+
+
+/* =========================
+   3. APRESENTAÇÃO PRINCIPAL
+========================= */
+
+.hero {
+    position: relative;
+    min-height: 650px;
+    width: min(1200px, 88%);
+    margin: 0 auto;
+    padding: 130px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.12;
+    letter-spacing: -3px;
+    margin-bottom: 28px;
+}
+
+.hero h1 span,
+.contact-section h2 span {
+    color: var(--accent);
+}
+
+.hero-content > p {
+    max-width: 580px;
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.button {
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 7px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+.primary-button {
+    background: var(--accent);
+    color: #100c1c;
+}
+
+.primary-button:hover {
+    background: var(--accent-light);
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.secondary-button:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+}
+
+.hero-decoration {
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decoration-circle {
+    width: 230px;
+    height: 230px;
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(167, 139, 250, 0.20),
+        rgba(167, 139, 250, 0.02) 70%
+    );
+
+    box-shadow: 0 0 100px rgba(139, 92, 246, 0.12);
+}
+
+.hero-decoration span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   4. SEÇÕES
+========================= */
+
+.section {
+    width: min(1200px, 88%);
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+.section-heading {
+    margin-bottom: 45px;
+}
+
+.section-heading h2,
+.contact-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+.section-heading > p {
+    color: var(--muted);
+    margin-top: 15px;
+}
+
+
+/* =========================
+   5. SOBRE
+========================= */
+
+.about {
+    border-top: 1px solid var(--border);
+}
+
+.about-content {
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.about-content p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+
+/* =========================
+   6. PROJETOS
+========================= */
+
+.projects-section {
+    border-top: 1px solid var(--border);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    min-width: 0;
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    background: var(--surface-hover);
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.project-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.project-card > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.project-tags span {
+    background: rgba(167, 139, 250, 0.10);
+    color: var(--accent-light);
+    border: 1px solid rgba(167, 139, 250, 0.18);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 11px;
+}
+
+.project-link {
+    margin-top: auto;
+    color: var(--accent-light);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: white;
+}
+
+
+/* =========================
+   7. HABILIDADES
+========================= */
+
+.skills-section {
+    border-top: 1px solid var(--border);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.skill-item {
+    padding: 23px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.skill-item:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   8. CONTATO
+========================= */
+
+.contact-section {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.contact-section h2 {
+    max-width: 700px;
+    margin: 0 auto 25px;
+}
+
+.contact-section > p {
+    max-width: 580px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+}
+
+.contact-section .button {
+    margin: 0 auto;
+}
+
+
+/* =========================
+   9. RODAPÉ
+========================= */
+
+.footer {
+    min-height: 110px;
+    padding: 30px 6%;
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer p,
+.footer > span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================
+   10. TABLETS
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero-decoration {
+        right: 0;
+        opacity: 0.35;
+    }
+
+    .hero-content {
+        max-width: 680px;
+    }
+
+    .navbar {
+        width: 90%;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+
+/* =========================
+   11. CELULARES
+========================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 18px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        order: 3;
+    }
+
+    .nav-button {
+        padding: 8px 13px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 90px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 10vw, 54px);
+        letter-spacing: -2px;
+    }
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+    .hero-decoration {
+        width: 180px;
+        height: 180px;
+        top: 75%;
+        right: 0;
+        opacity: 0.18;
+    }
+
+    .decoration-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .about-content,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card {
+        padding: 25px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* =========================
+   12. TELAS MUITO PEQUENAS
+========================= */
+
+@media (max-width: 380px) {
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-buttons .button {
+        width: 100%;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* =========================
+   IDENTIDADE VISUAL
+========================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.logo-mark {
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #a78bfa,
+        #7040d8
+    );
+
+    color: #ffffff !important;
+    border-radius: 11px;
+
+    font-size: 23px;
+    box-shadow: 0 0 25px rgba(167, 139, 250, 0.25);
+}
+
+.logo-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+
+.logo-name > span {
+    color: var(--accent);
+}
+
+/* EFEITOS DA APRESENTAÇÃO */
+
+.hero {
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: -250px;
+    top: 10%;
+
+    background: radial-gradient(
+        circle,
+        rgba(139, 92, 246, 0.10),
+        transparent 70%
+    );
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #c4b5fd,
+        #8b5cf6,
+        #d8b4fe
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.decoration-circle {
+    position: relative;
+}
+
+.decoration-circle::before,
+.decoration-circle::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 50%;
+}
+
+.decoration-circle::before {
+    inset: -25px;
+}
+
+.decoration-circle::after {
+    inset: -55px;
+}
+
+
+/* =========================
+   STUDIO AURORA — CREATIVE
+========================= */
+
+/* Fundo com iluminação e profundidade */
+
+body {
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(105, 65, 190, 0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 90% 45%,
+            rgba(40, 75, 160, 0.10),
+            transparent 35%
+        ),
+        var(--background);
+}
+
+/* Hero mais expressivo */
+
+.hero {
+    min-height: 700px;
+}
+
+.hero-content {
+    max-width: 780px;
+}
+
+.hero h1 {
+    max-width: 760px;
+}
+
+.hero-decoration {
+    filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.15));
+}
+
+.decoration-circle {
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(196, 181, 253, 0.35),
+            rgba(139, 92, 246, 0.10) 40%,
+            rgba(30, 35, 75, 0.05) 70%
+        );
+
+    box-shadow:
+        0 0 50px rgba(139, 92, 246, 0.15),
+        inset 0 0 45px rgba(167, 139, 250, 0.12);
+}
+
+/* Serviços */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    position: relative;
+    min-height: 290px;
+    padding: 30px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(30, 32, 55, 0.95),
+        rgba(17, 21, 34, 0.95)
+    );
+
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -90px;
+    top: -90px;
+
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.13);
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(167, 139, 250, 0.65);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: rgba(167, 139, 250, 0.13);
+    color: var(--accent-light);
+
+    font-size: 27px;
+}
+
+.service-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.service-number {
+    margin-top: auto;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Projetos com mais personalidade */
+
+.project-card {
+    background: linear-gradient(
+        145deg,
+        #191d30,
+        #10131f
+    );
+}
+
+.project-number {
+    opacity: 0.9;
+}
+
+/* Contato */
+
+.contact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(124, 80, 220, 0.10);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.contact-section > * {
+    position: relative;
+}
+
+/* Responsividade dos serviços */
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: 250px;
+    }
+
+    .hero {
+        min-height: 620px;
+    }
+}
+
+/* LINK DO GITHUB NA SEÇÃO DE CONTATO */
+
+.github-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+
+    width: fit-content;
+    margin: 22px auto 0;
+
+    color: var(--muted);
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.github-link span {
+    font-size: 20px;
+}
+
+.github-link:hover {
+    color: var(--accent-light);
+}
+
+}
